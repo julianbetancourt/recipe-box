@@ -9,7 +9,7 @@ Simple App to manage recipes. Users can add, edit and remove recipes. Changes ar
 4. Open http://localhost:3000
 
 ## Online
-You can see the project live at http://recipee-boxx.herokuapp.com/
+You can see the project live at http://recipee-box.herokuapp.com/
 
 ## Main Technologies Used
 1. create-react-app (Webpack, Babel, React)
