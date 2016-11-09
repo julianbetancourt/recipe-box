@@ -1,0 +1,7 @@
+export const ADD_RECIPE = 'ADD_RECIPE';
+export const REMOVE_RECIPE = 'REMOVE_RECIPE';
+export const EDIT_RECIPE = 'EDIT_RECIPE';
+
+export const SHOW_ADD_FORM = 'SHOW_ADD_FORM';
+export const SHOW_RECIPE_DETAIL = 'SHOW_RECIPE_DETAIL';
+export const SHOW_EDIT_FORM = 'SHOW_EDIT_FORM';
