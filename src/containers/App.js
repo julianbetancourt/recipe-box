@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import AddRecipe from './AddRecipe';
+import React, { Component, PropTypes } from 'react';
+import AddRecipeButton from './AddRecipeButton';
 import AddRecipeForm from './AddRecipeForm';
-import RecipeList from './RecipeList';
 import RecipeDetails from './RecipeDetails';
 import RecipeItem from './RecipeItem';
 import EditRecipeForm from './EditRecipeForm';
@@ -9,9 +8,7 @@ import Overlay from './Overlay';
 import { connect } from 'react-redux';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
+
   renderDetailForm() {
     const { showRecipeDetail } = this.props;
     if (showRecipeDetail || showRecipeDetail === 0) {
@@ -37,15 +34,16 @@ class App extends Component {
     }
   }
   render() {
+    const { recipes } = this.props;
     return (
       <div className="App">
         <header>
           <h1>Recipe Box</h1>
         </header>
         <div className="item-list">
-          <AddRecipe />
+          <AddRecipeButton />
             {
-              this.props.recipes.map((recipe, i) => {
+              recipes.map((recipe, i) => {
                 return <RecipeItem {...recipe} key={i} i={i}/>
               })
             }
@@ -56,6 +54,22 @@ class App extends Component {
       </div>
     );
   }
+}
+
+App.propTypes = {
+  recipes: PropTypes.array.isRequired,
+  showEditForm: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.number
+  ]).isRequired,
+  showRecipeDetail: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.number
+  ]).isRequired,
+  showAddForm: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.number
+  ]).isRequired
 }
 
 const mapStateToProps = (state) => {

@@ -21,7 +21,7 @@ class RecipeForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const { name, serves, image, ingredients, instructions } = this.refs;
-    const noImage = 'https://www.homemadebyyou.co.uk/assets/shared/lazy-load-placeholder.png';
+    const noImage = 'https://dwy5pyore8iyb.cloudfront.net/prod/resized/900x600/2015/6/26/0/08e5ff5c-3f86-4bd3-9839-b58a3513f3ff_TI-placeholder-image-eat-and-drink-generic.jpg';
     const form = {
       name: name.value.trim(),
       serves: serves.value.trim(),

@@ -9,7 +9,7 @@ class RecipeItem extends Component {
     this.handleItemClick = this.handleItemClick.bind(this);
   }
   handleItemClick() {
-    this.props.actions.showRecipeDetail(this.props.i);
+    this.props.formActions.showRecipeDetail(this.props.i);
   }
   render() {
     const itemStyles = {
@@ -24,12 +24,15 @@ class RecipeItem extends Component {
 }
 
 RecipeItem.propTypes = {
-
+  formActions: PropTypes.object.isRequired,
+  i: PropTypes.number.isRequired,
+  image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    actions: bindActionCreators(formActions, dispatch)
+    formActions: bindActionCreators(formActions, dispatch)
   }
 }
 

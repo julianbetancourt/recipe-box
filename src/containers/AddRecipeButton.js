@@ -4,19 +4,15 @@ import { bindActionCreators } from 'redux';
 import * as formActions from '../actions/formActions';
 
 
-class AddRecipe extends Component {
+class AddRecipeButton extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      clicked: false
-    }
     this.handleAddClick = this.handleAddClick.bind(this);
   }
   handleAddClick() {
-    this.props.actions.showAddForm(true);
+    this.props.formActions.showAddForm(true);
   }
   render() {
-    const { actions } = this.props;
     return (
       <div className="item item--add" onClick={this.handleAddClick}>
         <div className="ion-plus"></div>
@@ -25,18 +21,12 @@ class AddRecipe extends Component {
   }
 }
 
-AddRecipe.propTypes = {
-  actions: PropTypes.object.isRequired
+AddRecipeButton.propTypes = {
+  formActions: PropTypes.object.isRequired
 }
 
-const mapStateToProps = (state) => ({
-
-})
-
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(formActions, dispatch)
+  formActions: bindActionCreators(formActions, dispatch)
 });
 
-
-
-export default connect(null, mapDispatchToProps)(AddRecipe);
+export default connect(null, mapDispatchToProps)(AddRecipeButton);

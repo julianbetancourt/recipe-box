@@ -5,7 +5,7 @@ const recipes = (state = initialState.recipes, action) => {
   switch (action.type) {
     case types.ADD_RECIPE:
       const { name, time, ingredients, instructions, image } = action.payload;
-      const noImage = 'https://www.homemadebyyou.co.uk/assets/shared/lazy-load-placeholder.png';
+      const noImage = 'https://dwy5pyore8iyb.cloudfront.net/prod/resized/900x600/2015/6/26/0/08e5ff5c-3f86-4bd3-9839-b58a3513f3ff_TI-placeholder-image-eat-and-drink-generic.jpg';
       return [
         ...state,
         {

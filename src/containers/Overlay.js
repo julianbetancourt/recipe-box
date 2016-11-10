@@ -9,9 +9,10 @@ class Overlay extends Component {
     this.handleOverlayClick = this.handleOverlayClick.bind(this);
   }
   handleOverlayClick() {
-    this.props.actions.showAddForm(false);
-    this.props.actions.showRecipeDetail(false);
-    this.props.actions.showEditForm(false);
+    const { formActions } = this.props;
+    formActions.showAddForm(false);
+    formActions.showRecipeDetail(false);
+    formActions.showEditForm(false);
   }
   render() {
     return (
@@ -21,12 +22,12 @@ class Overlay extends Component {
 }
 
 Overlay.propTypes = {
-  actions: PropTypes.object.isRequired
+  formActions: PropTypes.object.isRequired
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    actions: bindActionCreators(formActions, dispatch)
+    formActions: bindActionCreators(formActions, dispatch)
   }
 }
 

@@ -21,7 +21,8 @@ class EditRecipeForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const { name, serves, image, ingredients, instructions } = this.refs;
-    const noImage = 'https://www.homemadebyyou.co.uk/assets/shared/lazy-load-placeholder.png';
+    const { recipeActions, formActions, showEditForm } = this.props;
+    const noImage = 'https://dwy5pyore8iyb.cloudfront.net/prod/resized/900x600/2015/6/26/0/08e5ff5c-3f86-4bd3-9839-b58a3513f3ff_TI-placeholder-image-eat-and-drink-generic.jpg';
     const form = {
       name: name.value.trim(),
       serves: serves.value.trim(),
@@ -34,8 +35,8 @@ class EditRecipeForm extends Component {
       else {return true}
     });
     if (isValid) {
-      this.props.recipeActions.editRecipe(this.props.showEditForm,form);
-      this.props.formActions.showEditForm(false);
+      recipeActions.editRecipe(showEditForm,form);
+      formActions.showEditForm(false);
     } else {
       alert('Please enter all the required fields');
     }
@@ -80,7 +81,12 @@ class EditRecipeForm extends Component {
 
 EditRecipeForm.propTypes = {
   formActions: PropTypes.object.isRequired,
-  recipeActions: PropTypes.object.isRequired
+  recipeActions: PropTypes.object.isRequired,
+  showEditForm: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.number
+  ]).isRequired,
+  recipes: PropTypes.array.isRequired
 }
 
 const mapStateToProps = (state) => {

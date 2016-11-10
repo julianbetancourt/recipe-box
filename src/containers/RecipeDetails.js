@@ -17,7 +17,7 @@ class RecipeDetails extends Component {
   }
   handleRemoveClick() {
     const { recipeActions, formActions, showRecipeDetail } = this.props;
-    recipeActions.removeRecipe(this.props.showRecipeDetail);
+    recipeActions.removeRecipe(showRecipeDetail);
     formActions.showRecipeDetail(false);
   }
   handleEditClick() {
@@ -67,7 +67,13 @@ class RecipeDetails extends Component {
 }
 
 RecipeDetails.propTypes = {
-
+  formActions: PropTypes.object.isRequired,
+  recipeActions: PropTypes.object.isRequired,
+  recipes: PropTypes.array.isRequired,
+  showRecipeDetail: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.number
+  ]).isRequired
 }
 
 const mapStateToProps = (state) => {
