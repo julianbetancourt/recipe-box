@@ -11,6 +11,12 @@ class RecipeDetails extends Component {
     this.handleEditClick = this.handleEditClick.bind(this);
     this.handleCancelClick = this.handleCancelClick.bind(this);
   }
+  componentDidMount() {
+    document.body.style.overflow = 'hidden'
+  }
+  componentWillUnmount() {
+    document.body.style.overflow = 'initial'
+  }
   handleCancelClick() {
     const { formActions } = this.props;
     formActions.showRecipeDetail(false);
@@ -21,7 +27,7 @@ class RecipeDetails extends Component {
     if (result) {
       recipeActions.removeRecipe(showRecipeDetail);
       formActions.showRecipeDetail(false);
-    }  
+    }
   }
   handleEditClick() {
     const { formActions } = this.props;

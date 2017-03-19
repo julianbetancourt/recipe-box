@@ -11,6 +11,12 @@ class EditRecipeForm extends Component {
     this.handleCancelClick = this.handleCancelClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  componentDidMount() {
+    document.body.style.overflow = 'hidden'
+  }
+  componentWillUnmount() {
+    document.body.style.overflow = 'initial'
+  }
   handleCancelClick(e) {
     e.preventDefault();
     this.props.formActions.showEditForm(false);

@@ -12,7 +12,6 @@ class App extends Component {
   renderDetailForm() {
     const { showRecipeDetail } = this.props;
     if (showRecipeDetail || showRecipeDetail === 0) {
-      document.body.style.overflow = 'hidden'
       return <div className="modal"><Overlay /><RecipeDetails /></div>
     } else {
       return null;
@@ -21,7 +20,6 @@ class App extends Component {
   renderAddForm() {
     const { showAddForm } = this.props;
     if (showAddForm) {
-      document.body.style.overflow = 'hidden'
       return <div className="modal"><Overlay /><AddRecipeForm /></div>
     } else {
       return null;
@@ -30,7 +28,6 @@ class App extends Component {
   renderEditForm() {
     const { showEditForm } = this.props;
     if (showEditForm || showEditForm === 0) {
-      document.body.style.overflow = 'hidden'
       return <div className="modal"><Overlay /><EditRecipeForm /></div>
     } else {
       return null;
