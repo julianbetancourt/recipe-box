@@ -17,8 +17,11 @@ class RecipeDetails extends Component {
   }
   handleRemoveClick() {
     const { recipeActions, formActions, showRecipeDetail } = this.props;
-    recipeActions.removeRecipe(showRecipeDetail);
-    formActions.showRecipeDetail(false);
+    const result = confirm('Are you sure you want to delete this recipe?')
+    if (result) {
+      recipeActions.removeRecipe(showRecipeDetail);
+      formActions.showRecipeDetail(false);
+    }  
   }
   handleEditClick() {
     const { formActions } = this.props;
